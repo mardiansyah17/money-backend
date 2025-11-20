@@ -16,4 +16,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
     Route::post('/wallet', [WalletController::class, 'store']);
+    Route::put('/wallet', [WalletController::class, 'update']);
+    Route::delete('/wallet', [WalletController::class, 'destroy']);
 });
