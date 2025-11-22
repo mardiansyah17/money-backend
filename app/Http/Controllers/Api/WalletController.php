@@ -56,4 +56,16 @@ class WalletController extends Controller
         $wallet->delete();
         return response()->json(['wallet' => $wallet], 200);
     }
+
+    public function index()
+    {
+        $wallets = auth()->user()->wallets;
+        return response()->json(['wallets' => $wallets], 200);
+    }
+
+    public function show(Wallet $wallet)
+    {
+        return response()->json(['wallet' => $wallet], 200);
+
+    }
 }
